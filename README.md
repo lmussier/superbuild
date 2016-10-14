@@ -5,10 +5,10 @@
 Superbuild project, demonstrate how to use cmake to perform multi platform build with a single code base.
 
 ## Build ##
-`
+```
 git clone https://github.com/lmussier/superbuild.git
 mkdir build
 cd build
 cmake ../superbuild
 make
-`
+```
