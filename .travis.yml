@@ -39,7 +39,7 @@ compiler:
 script: ./travis.sh
 env:
   matrix:
-    - CMAKE_BUILD_TYPE Debug
+    - CMAKE_BUILD_TYPE=Debug
     - CMAKE_BUILD_TYPE=Release
 notifications:
   email: false
