@@ -51,7 +51,7 @@ env:
     - CMAKE_BUILD_TYPE=Release
     
 after_success:
-  - coveralls --gcov /usr/bin/gcov-4.9 --root ../build --exclude-pattern '/usr/include/.*'	 --gcov-options '\-lp'
+  - coveralls --gcov /usr/bin/gcov-4.9 --root ../build --exclude-pattern '/usr/include/.*' --exclude-pattern '.*/install_folder/.*'	--exclude-pattern '.*/CMakeFiles/.*' --gcov-options '\-lp'
 
 notifications:
   email: false
