@@ -12,6 +12,7 @@ install:
 - echo ${CXX}
 - ${CXX} --version
 - ${CXX} -v
+
 addons:
   apt:
     # List of whitelisted in travis packages for ubuntu-precise can be found here:
@@ -29,18 +30,29 @@ addons:
     - g++-4.9
     - clang-3.7
     - valgrind
+    
 os:
   - linux
-  - osx
+  
 language: cpp
+
 compiler:
   - gcc
   - clang
+  
+before_install:
+  - pip install --user cpp-coveralls
+  
 script: ./travis.sh
+
 env:
   matrix:
     - CMAKE_BUILD_TYPE=Debug
     - CMAKE_BUILD_TYPE=Release
+    
+after_success:
+  - coveralls --gcov-options '\-lp'
+
 notifications:
   email: false
 sudo: false
