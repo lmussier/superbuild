@@ -51,7 +51,7 @@ env:
     - CMAKE_BUILD_TYPE=Release
     
 after_success:
-  - coveralls --gcov-options '\-lp'
+  - coveralls --gcov-options '\-lp' --root build
 
 notifications:
   email: false
