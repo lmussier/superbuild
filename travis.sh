@@ -9,5 +9,3 @@ cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ../../superbuild
 make
 
 cd -
-ls -l
-find . -name *.gcda
