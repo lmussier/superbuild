@@ -30,7 +30,6 @@ addons:
     - g++-4.9
     - clang-3.7
     - gcov
-    - valgrind
     
 os:
   - linux
