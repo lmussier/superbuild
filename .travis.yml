@@ -3,6 +3,10 @@
 # This file can be validated on:
 # http://lint.travis-ci.org/
 
+before_install:
+  - pip install --user cpp-coveralls
+  - "cd /usr/src/gtest && sudo cmake . && sudo cmake --build . && sudo mv libg* /usr/local/lib/ ; cd -"
+
 install:
 # /usr/bin/gcc is 4.6 always, but gcc-X.Y is available.
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
@@ -29,7 +33,7 @@ addons:
     - gcc-4.9
     - g++-4.9
     - clang-3.7
-    - gcov
+    - libgtest-dev
     
 os:
   - linux
@@ -38,9 +42,6 @@ language: cpp
 
 compiler:
   - gcc
-  
-before_install:
-  - pip install --user cpp-coveralls
   
 script: ./travis.sh
 
